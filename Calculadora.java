@@ -1,4 +1,4 @@
-package calculadoraExpPosFixa;
+package calculadoraexposfixa;
 
 public class Calculadora {
 

@@ -1,6 +1,5 @@
-package calculadoraExpPosFixa;
+package calculadoraexposfixa;
 
-import javax.swing.JOptionPane;
 
 public class Pilha {
 
@@ -68,7 +67,6 @@ public class Pilha {
 		for (int i = inicio; i <= fim; i++) {
 			elementos += pilha[i] + " ";
 		}
-		// JOptionPane.showMessageDialog(null, elementos);
 		System.out.println(elementos);
 	}
 

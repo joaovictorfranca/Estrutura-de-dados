@@ -1,4 +1,4 @@
-package calculadora.exp.posfixa;
+package calculadoraexposfixa;
 
 import java.util.Scanner;
 

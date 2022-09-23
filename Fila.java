@@ -1,18 +1,17 @@
-package calculadoraExpPosFixa;
+package calculadoraexposfixa;
 
-import javax.swing.JOptionPane;
 
 public class Fila {
-    int inicio;
-    int fim;
+    Integer inicio;
+	Integer fim;
     int tamanho;
     int qtdeElementos;
-    int f[];
+    int fila[];
 
     public Fila(){
-        inicio = fim = -1;
+        inicio = fim = null;
         tamanho = 200;
-        f = new int[tamanho];
+        fila = new int[tamanho];
         qtdeElementos = 0;
     }
 
@@ -32,43 +31,47 @@ public class Fila {
 
     public void adicionar(int e){
         if (! estaCheia()){
-            if (inicio == -1){
-                inicio = 0;
-            }
-            fim++;
-            f[fim] = e;
-            qtdeElementos++;
+            if (inicio == null || fim == null) {
+				inicio = 0;
+				fim = 0;
+				fila[fim] = e;
+				qtdeElementos++;
+			} else {
+				fim++;
+				fila[fim] = e;
+				qtdeElementos++;
+			}
         }
     }
 
     public void remover(){
         if (! estaVazia() ){
-            inicio++;
-            qtdeElementos--;
+            if(qtdeElementos == 1) {
+				fila[inicio] = 0;
+				inicio = null;
+				fim = null;
+				qtdeElementos--;
+			} else {
+				fila[inicio] = 0;
+				inicio = 0;
+                fim--;
+				qtdeElementos--;
+			}
         }
         for(int n = 0; n < qtdeElementos; n++){
-            f[n] = f[inicio];
-            inicio++;
+            if(fila[n+1] != 0){
+                fila[n] = fila[n+1];
+            }else{
+                break;
+            }
         }
-        fim--;
-        inicio = 0;
     }
 
     public void mostrar(){
         String elementos = "";
             for (int i = inicio; i<=fim; i++) {
-                elementos += f[i]+ " ";
+                elementos += fila[i]+ " ";
             }
-            //JOptionPane.showMessageDialog(null, elementos);
             System.out.println(elementos);
     }
-/*    public static void main(String[] args) {
-        Fila f = new Fila();   
-        f.adicionar(10);
-        f.adicionar(12);
-        f.adicionar(30);
-        f.mostrar();
-        f.remover();
-        f.mostrar();
-    }                                             */
 }
