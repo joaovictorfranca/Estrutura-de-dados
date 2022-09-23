@@ -37,15 +37,15 @@ public class Calculadora {
 
 		switch (operador) {
 			case '+':
-				return a + b;
+				return b + a;
 			case '-':
-				return a - b;
+				return b - a;
 			case '*':
-				return a * b;
+				return b * a;
 			case '/':
-				return a / b;
+				return b / a;
 			case '^':
-				return Math.pow(a, b);
+				return Math.pow(b, a);
 			default:
 				return 0;
 		}
