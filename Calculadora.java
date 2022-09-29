@@ -1,7 +1,6 @@
 package calculadoraexposfixa;
 
 public class Calculadora {
-	double sobrando[];
 
 	public static void lerEntrada(String expPosFixa, Pilha pilha) {
 		String numero = "";
