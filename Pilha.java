@@ -8,7 +8,7 @@ public class Pilha {
 	int tamanho;
 	int qtdeElementos;
 	double pilha[];
-
+	
 	public Pilha() {
 		inicio = fim = null;
 		tamanho = 200;
@@ -69,5 +69,4 @@ public class Pilha {
 		}
 		System.out.println(elementos);
 	}
-
 }

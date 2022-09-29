@@ -1,6 +1,7 @@
 package calculadoraexposfixa;
 
 public class Calculadora {
+	double sobrando[];
 
 	public static void lerEntrada(String expPosFixa, Pilha pilha) {
 		String numero = "";
@@ -32,24 +33,31 @@ public class Calculadora {
 	}
 
 	private static double calcularRetornando(Pilha pilha, char operador) {
-		double a = pilha.pop();
-		double b = pilha.pop();
 
-		switch (operador) {
-			case '+':
-				return b + a;
-			case '-':
-				return b - a;
-			case '*':
-				return b * a;
-			case '/':
-				return b / a;
-			case '^':
-				return Math.pow(b, a);
-			default:
-				return 0;
+		if(pilha.qtdeElementos == 1){
+			System.out.println("\nSua pilha está faltando numero para realizar a operação: " + operador + "\n\nA ultima operação realizada retorna:");
+		}else{
+			double a = pilha.pop();
+			double b = pilha.pop();
+
+			switch (operador) {
+				case '+':
+					return b + a;
+				case '-':
+					return b - a;
+				case '*':
+					return b * a;
+				case '/':
+					return b / a;
+				case '^':
+					return Math.pow(b, a);
+				default:
+					return 0;
+			}
 		}
+		return 0;
 	}
+
     
     public static boolean isPosFixa(String dadosEntrada) {
         

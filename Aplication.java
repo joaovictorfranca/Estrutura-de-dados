@@ -15,7 +15,20 @@ public class Aplication {
 		entrada = scan.nextLine();
         if(Calculadora.isPosFixa(entrada)){
             Calculadora.lerEntrada(entrada, pilha);
-		    pilha.mostrar();            
+			if(pilha.qtdeElementos != 1 && pilha.pilha[pilha.fim] != Double.valueOf(0)){
+				System.out.println("Ultima operação feita retorna: ");
+				double ultimoElemento = pilha.pop();
+				System.out.println(ultimoElemento);
+				System.out.println("Sua pilha está faltando operador para realizar operação(ões) com o(s) numero(s): ");
+				pilha.mostrar();
+			}else{
+				if(pilha.qtdeElementos != 1){
+					pilha.pop();
+					pilha.mostrar();
+				}else{
+					pilha.mostrar();
+				}
+			}         
         }else{System.out.println("\n SUA EXPRESSÃO NÃO É PÓS-FIXA!");}
 
 		scan.close();
