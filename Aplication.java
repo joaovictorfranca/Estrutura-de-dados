@@ -29,7 +29,31 @@ public class Aplication {
 					pilha.mostrar();
 				}
 			}         
-        }else{System.out.println("\n SUA EXPRESSÃO NÃO É PÓS-FIXA!");}
+        }else{
+			System.out.println("\n SUA EXPRESSÃO NÃO É PÓS-FIXA!");
+			System.out.print("\n Passando para pós-fixa: ");
+			entrada = PassToPosFixa.LerExp(entrada);
+			System.out.println(entrada);
+
+			if(Calculadora.isPosFixa(entrada)){
+				Calculadora.lerEntrada(entrada, pilha);
+				if(pilha.qtdeElementos != 1 && pilha.pilha[pilha.fim] != Double.valueOf(0)){
+					System.out.println("Ultima operação feita retorna: ");
+					double ultimoElemento = pilha.pop();
+					System.out.println(ultimoElemento);
+					System.out.println("Sua pilha está faltando operador para realizar operação(ões) com o(s) numero(s): ");
+					pilha.mostrar();
+				}else{
+					if(pilha.qtdeElementos != 1){
+						pilha.pop();
+						pilha.mostrar();
+					}else{
+						System.out.print("\n Resultado da expressão é: ");
+						pilha.mostrar();
+					}
+				}
+			}
+		}
 
 		scan.close();
 		System.out.println("\n\n\t FIM !");
