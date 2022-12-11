@@ -1,4 +1,4 @@
-package calculadoraexposfixa;
+package exp_pos_fixa;
 
 import java.util.Scanner;
 
