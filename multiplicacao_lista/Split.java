@@ -44,10 +44,10 @@ public class Split {
 			
 			loop--;
 		}
-		return interterLista(listaRetorno);
+		return inverterLista(listaRetorno);
 	}
 	
-	private static List<String> interterLista(List<String> lista){
+	private static List<String> inverterLista(List<String> lista){
 		List<String> listaInvertida = new ArrayList<>();
 		
 		for(int i = lista.size()-1; i >= 0; i--) {
@@ -209,8 +209,15 @@ public class Split {
 					BigDecimal valorA = BigDecimal.valueOf(Long.parseLong(resultBporA.get(1)));
 					BigDecimal soma = valorA.add(valorB);
 					List<String> resultadoSoma = manipulaStringRetornandoUmaListaDoNumero(soma.toString(), qtdCaracteresBase);
-					resultBporA.remove(1);
-					resultBporA.addAll(resultadoSoma);
+					if(resultadoSoma.size() > 1) {
+						resultBporA.remove(1);
+						resultBporA.add(resultadoSoma.get(1));
+						resultBporA.add(0, somaString(resultadoSoma.get(0), resultBporA.get(0)));
+						resultBporA.remove(1);
+					} else {
+						resultBporA.remove(1);
+						resultBporA.addAll(resultadoSoma);
+					}
 				} else {
 					BigDecimal valorA = BigDecimal.valueOf(Long.parseLong(resultBporA.get(0)));
 					BigDecimal soma = valorA.add(valorB);
@@ -260,7 +267,7 @@ public class Split {
 		
 	}
 
-	public static String somaIndividual(String a, String b) {
+	public static String somaString(String a, String b) {
 		BigDecimal valorA = BigDecimal.valueOf(Long.parseLong(a));
 		BigDecimal valorB = BigDecimal.valueOf(Long.parseLong(b));
 		return valorA.add(valorB).toString();
